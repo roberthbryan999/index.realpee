@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+<body>
+
+
+    <h2>Bulbasaur</h2>
+    <div id="bulbasaur"></div>
+
+    <h2>Pikachu</h2>
+    <div id="pikachu"></div>
+
+    <script>
+
+        fetch("https://pokeapi.co/api/v2/pokemon/bulbasaur")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("bulbasaur").innerHTML =
+                "Nombre: " + data.name + "<br>" +
+                "Altura: " + data.height + "<br>" +
+                "Peso: " + data.weight + "<br>" +
+                "Tipos: " + data.types.map(t => t.type.name).join(",");
+        })
+
+    </script>
+
+
+    <script>
+
+        fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("pikachu").innerHTML =
+                "Nombre: " + data.name + "<br>" +
+                "Altura: " + data.height + "<br>" +
+                "Peso: " + data.weight + "<br>" +
+                "Tipos: " + data.types.map(t => t.type.name).join(",");
+        })
+
+    </script>
+
+</body>
+</html>
